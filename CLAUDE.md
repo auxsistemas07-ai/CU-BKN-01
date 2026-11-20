@@ -123,7 +123,7 @@ Debe ser una decisión justificada, no una lista de opciones. Metas: que el desp
 - Los commits y push los hago yo. Claude escribe el código, llena los documentos y ejecuta los demás comandos; al terminar cada tarea me pasa los comandos exactos para el commit.
 - Repositorio: https://github.com/auxsistemas07-ai/CU-BKN-01 (rama `main`). Identidad de Git configurada solo en el repositorio local.
 - Claude documenta cada paso al terminarlo en `docs/diario/AAAA-MM-DD.md` (un archivo por día): qué se hizo, por qué, archivos tocados y qué sigue. Sin secretos ni identificadores.
-- `docs/simulacion-cliente.md` la lleno yo; Claude solo me recuerda hacerlo al terminar cada paso en Meta.
+- `docs/simulacion-cliente.md` la llena Claude cuando yo confirmo que terminé un paso en Meta (yo solo completo el tiempo si hace falta).
 
 ## Avance
-- **2026-11-20 · Mañana 1:** pasos 1, 2 y 5 hechos. Paso 3 bloqueado por Meta (cuenta nueva, esperar 1 h para crear el portafolio). Sigue: reintentar paso 3, luego paso 4.
+- **2026-11-20 · Mañana 1:** pasos 1, 2 y 5 hechos (primer push hecho). Paso 3 hecho: cartera «Cu-Bkn-01», app «Bandeja CU-BKN-01» y número de prueba. Paso 4 hecho (destinatario verificado, token temporal en `.env`). Sigue: paso 6 (script hello_world).
