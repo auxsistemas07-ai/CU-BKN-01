@@ -39,7 +39,8 @@ Una solución que funcione, no un reporte. Una entrega que solo investiga no cue
 ## Entrega diaria
 - A las 9:00, mensaje de tres líneas: Ayer / Hoy / Bloqueos.
 - Mensaje y entregas a dev27@beaken.agency, con copia a hola@beaken.agency, desde el correo interno, antes de las 12:00.
-- Asunto con la clave CU-BKN-01.  
+- Asunto con la clave CU-BKN-01.
+- Los enlaces de Drive o Docs se comparten con hola@beaken.agency para que puedan abrirlos.
 
 ## El caso
 Un despacho de seguros con 6 agentes y una coordinadora atiende WhatsApp en celulares personales. Quiere:
@@ -99,7 +100,29 @@ Debe ser una decisión justificada, no una lista de opciones. Metas: que el desp
 - Revisar Embedded Signup y el esquema de Tech Provider de Meta, y recomendar uno con su porqué.
 - Cada respuesta lleva fuente: enlace a la documentación oficial de Meta y fecha de consulta. Si algo no se puede confirmar, se marca como riesgo abierto; nunca se inventa.
 - Reprueba automáticamente cualquier paso que pida al cliente mandar contraseñas, tokens o códigos por chat o correo, que use librerías no oficiales, o que deje el número o la cuenta de WhatsApp Business del cliente a nombre de Beaken.
-- Preguntas que debe responder: ver el correo del caso (pasos del despacho y de Beaken; Embedded Signup; Tech Provider vs. Solution Partner/BSP; verificación del negocio, nombre visible y plantillas; coexistencia o migración; quién paga y costo mensual para 6 agentes; dueños y roles; permisos delegados exactos; tipo de token, guardado y rotación; código de verificación y PIN; revocación; baja del cliente y borrado comprobable; datos personales y aviso de privacidad; lo que no se puede hacer sin el cliente).
+- Formato: 4 a 8 páginas, con fases, quién hace cada paso (despacho, Beaken o Meta), tiempos estimados y respuesta a cada pregunta con fuente (enlace oficial de Meta + fecha de consulta).
+- Se evalúa: exactitud técnica con fuentes vigentes 30 %; pasos mínimos y claros para el cliente 20 %; seguridad (dueños, mínimo privilegio, rotación, revocación y baja) 30 %; claridad para un dueño de despacho sin conocimientos técnicos 10 %; honestidad sobre lo que no se sabe 10 %.
+- Preguntas que debe responder (textuales del correo):
+  1. ¿Qué pasos le tocan al despacho, cuántos son y cuánto tarda cada uno? ¿Cuáles hacemos nosotros?
+  2. ¿Qué es Embedded Signup, qué pasos le quita al cliente y cómo se ve desde su lado, pantalla por pantalla?
+  3. ¿Qué es ser Tech Provider de Meta, en qué se diferencia de un Solution Partner o BSP, qué necesita Beaken para serlo y cuánto tarda? Mientras no lo seamos, ¿cuál es la alternativa segura para el primer cliente?
+  4. ¿Qué necesita el despacho para la verificación del negocio, cómo se aprueban el nombre visible y las plantillas, y cuánto tardan?
+  5. Si el despacho ya usa ese número en la app de WhatsApp Business: ¿coexistencia o migración? ¿Qué se pierde en cada caso y cuánto tiempo queda sin servicio?
+  6. ¿Quién paga los mensajes a Meta y cómo se estima el costo mensual de un despacho de 6 agentes?
+  7. ¿Quién es dueño del portafolio, la cuenta de WhatsApp Business, el número, la app y el token? ¿Quién tiene acceso a qué y con qué rol?
+  8. ¿Qué permisos delegados exactos recibe Beaken y por qué basta con esos y no más?
+  9. ¿Qué tipo de token se usa (de usuario del sistema o de integración, no de una persona), dónde se guarda, cada cuánto y cómo se rota, y qué hacemos si se filtra?
+  10. ¿Quién recibe el código de verificación al registrar el número y quién define y guarda el PIN?
+  11. ¿Qué se revoca, quién lo hace y en cuánto tiempo cuando sale un agente del despacho, un empleado de Beaken o cuando se cambia de proveedor?
+  12. ¿Qué pasa cuando el cliente se va? ¿Cómo se queda con su número y su historial, y qué datos borramos y cómo lo comprobamos?
+  13. ¿Qué datos personales pasan por Meta y por nuestro servidor y cómo se cumple el aviso de privacidad?
+  14. ¿Qué cosas no se pueden hacer sin que intervenga el cliente, aunque queramos?
+- **Matriz de riesgos y accesos** debe cubrir: dueño del portafolio, número, app y token; permisos delegados; rotación y revocación; qué pasa si el cliente se va; migración si ya usa la app de WhatsApp Business.
+- **Runbook:** alta paso a paso contada también desde el lado del despacho, más checklist de baja.
+
+## Cómo se comprueba cada criterio en la demo
+- 1, 4, 5, 9: demo en vivo (4 con 2 sesiones en 2 navegadores). 2: curl sin firma. 3: reenvío del mismo payload con curl. 6: demo y consulta a la base de datos. 7: demo o prueba automatizada. 8: demo. 10: gitleaks o búsqueda manual. 11: lo prueba otra persona con el README. 12: salida de `npm test`. 13: archivos en el repositorio. 14: revisión del repositorio y de la demo.
+- Fecha de la demo: por confirmar.
 
 ## Plan por mañanas (unas 4 h cada una)
 1. Alta en Meta, app, número de prueba, hello_world y webhook recibiendo la respuesta. Entregable: nota con capturas sin token ni identificadores. **Sin esto no se avanza.**
@@ -127,3 +150,4 @@ Debe ser una decisión justificada, no una lista de opciones. Metas: que el desp
 
 ## Avance
 - **2026-11-20 · Mañana 1:** pasos 1, 2 y 5 hechos (primer push hecho). Paso 3 hecho: cartera «Cu-Bkn-01», app «Bandeja CU-BKN-01» y número de prueba. Paso 4 hecho (destinatario verificado, token temporal en `.env`). Sigue: paso 6 (script hello_world).
+- **2026-11-23:** paso 6 hecho (`scripts/enviar-hello-world.mjs`, Graph API v26.0, Meta respondió «accepted»). Sigue: paso 7 (webhook mínimo).
