@@ -150,4 +150,4 @@ Debe ser una decisión justificada, no una lista de opciones. Metas: que el desp
 
 ## Avance
 - **2026-11-20 · Mañana 1:** pasos 1, 2 y 5 hechos (primer push hecho). Paso 3 hecho: cartera «Cu-Bkn-01», app «Bandeja CU-BKN-01» y número de prueba. Paso 4 hecho (destinatario verificado, token temporal en `.env`). Sigue: paso 6 (script hello_world).
-- **2026-11-23:** paso 6 hecho (`scripts/enviar-hello-world.mjs`, Graph API v26.0, Meta respondió «accepted»). Sigue: paso 7 (webhook mínimo).
+- **2026-11-23:** pasos 6, 7 y 8 hechos en lo posible: hello_world aceptado por Meta (formato México `521…`), webhook mínimo con firma validada, registrado en Meta y recibiendo el «Test» del panel; verify token rotado por aparecer en una captura. **Bloqueo:** con la app sin publicar no llegan al teléfono ni al webhook los mensajes reales. Sigue: decidir si se publica la app (sin verificación ni pagos), terminar la prueba real y la nota de evidencia (paso 9).
