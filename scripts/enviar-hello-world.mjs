@@ -30,8 +30,8 @@ const datos = await respuesta.json();
 
 if (!respuesta.ok) {
   console.error(`Error HTTP ${respuesta.status} · código ${datos.error?.code}: ${datos.error?.message}`);
-  process.exit(1);
+  process.exitCode = 1;
+} else {
+  console.log(`OK HTTP ${respuesta.status} · estado: ${datos.messages?.[0]?.message_status ?? 'sin estado'}`);
+  console.log(`Enviado a: ***${TEST_RECIPIENT_PHONE.slice(-4)}`);
 }
-
-console.log(`OK HTTP ${respuesta.status} · estado: ${datos.messages?.[0]?.message_status ?? 'sin estado'}`);
-console.log(`Enviado a: ***${TEST_RECIPIENT_PHONE.slice(-4)}`);
