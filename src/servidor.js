@@ -11,4 +11,13 @@ if (!APP_SECRET || !VERIFY_TOKEN) {
 
 const db = abrirBaseDatos();
 const app = crearApp({ db, appSecret: APP_SECRET, verifyToken: VERIFY_TOKEN });
-app.listen(Number(PORT), () => console.log(`Servidor CU-BKN-01 escuchando en http://localhost:${PORT} (webhook en /webhook)`));
+// En Express 5 el error de arranque (por ejemplo, puerto ocupado) llega como argumento del callback.
+app.listen(Number(PORT), (error) => {
+  if (error) {
+    console.error(error.code === 'EADDRINUSE'
+      ? `El puerto ${PORT} ya está en uso: probablemente el servidor ya está encendido en otra ventana.`
+      : `No se pudo arrancar el servidor: ${error.message}`);
+    process.exit(1);
+  }
+  console.log(`Servidor CU-BKN-01 escuchando en http://localhost:${PORT} (webhook en /webhook)`);
+});
