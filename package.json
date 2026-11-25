@@ -8,6 +8,7 @@
     "node": ">=22.13"
   },
   "scripts": {
+    "start": "node --env-file=.env src/servidor.js",
     "test": "node --test"
   },
   "dependencies": {

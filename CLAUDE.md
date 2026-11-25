@@ -137,6 +137,7 @@ Debe ser una decisión justificada, no una lista de opciones. Metas: que el desp
 10. Ensayo y demo.
 
 ## Forma de trabajo
+- Antes de cada paso, Claude cita la parte del correo del caso (o del director) que ese paso cumple, y luego hace la tarea.
 - Paso a paso: haz un solo paso, explica qué hiciste y por qué, dime qué comandos ejecutar y espera a que diga «continuar».
 - Las acciones en el panel de Meta, ngrok y GitHub las hago yo; tú me dices qué hacer y dónde.
 - Nunca me pidas que pegue un token, secreto o identificador en el chat. Si necesitas probar algo con secretos, que el código los lea de `.env`.
