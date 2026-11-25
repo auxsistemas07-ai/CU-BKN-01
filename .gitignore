@@ -5,3 +5,6 @@
 
 # Dependencias
 node_modules/
+
+# Base de datos local (puede contener mensajes de prueba)
+data/

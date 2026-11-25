@@ -142,7 +142,7 @@ Debe ser una decisión justificada, no una lista de opciones. Metas: que el desp
 - Nunca me pidas que pegue un token, secreto o identificador en el chat. Si necesitas probar algo con secretos, que el código los lea de `.env`.
 - Si algo es ambiguo o falta una decisión, pregúntame en lugar de suponer.
 - Explica en español y de forma sencilla.
-- Commits pequeños y descriptivos, con la clave CU-BKN-01 cuando aplique.
+- Commits pequeños y descriptivos. **Desde el 2026-11-25 los mensajes de commit empiezan con `TI006:`** (indicación de Carlos).
 - Los commits y push los hago yo. Claude escribe el código, llena los documentos y ejecuta los demás comandos; al terminar cada tarea me pasa los comandos exactos para el commit.
 - Repositorio: https://github.com/auxsistemas07-ai/CU-BKN-01 (rama `main`). Identidad de Git configurada solo en el repositorio local.
 - Claude documenta cada paso al terminarlo en `docs/diario/AAAA-MM-DD.md` (un archivo por día): qué se hizo, por qué, archivos tocados y qué sigue. Sin secretos ni identificadores.
