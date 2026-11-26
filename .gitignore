@@ -11,3 +11,6 @@ data/
 
 # Correo original del caso (trae nombres y correos internos)
 txt
+
+# Panel compilado (se genera con npm run build)
+web/dist/
