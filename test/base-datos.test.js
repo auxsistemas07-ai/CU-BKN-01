@@ -3,10 +3,10 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { abrirBaseDatos } from '../src/db/base-datos.js';
 
-test('la base crea las tablas usuarios, conversaciones y mensajes', () => {
+test('la base crea las tablas usuarios, sesiones, conversaciones y mensajes', () => {
   const db = abrirBaseDatos(':memory:');
   const tablas = db.prepare("SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name").all().map((t) => t.name);
-  assert.deepEqual(tablas, ['conversaciones', 'mensajes', 'usuarios']);
+  assert.deepEqual(tablas, ['conversaciones', 'mensajes', 'sesiones', 'usuarios']);
 });
 
 test('la base rechaza un wa_message_id repetido (índice UNIQUE)', () => {

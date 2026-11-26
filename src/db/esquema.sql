@@ -11,6 +11,14 @@ CREATE TABLE IF NOT EXISTS usuarios (
   creado_en       TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
+-- Sesiones abiertas del panel. Se guarda el hash del token, no el token que lleva la cookie.
+CREATE TABLE IF NOT EXISTS sesiones (
+  token_hash  TEXT    PRIMARY KEY,                -- SHA-256 del token de la cookie
+  usuario_id  INTEGER NOT NULL REFERENCES usuarios(id),
+  expira_en   TEXT    NOT NULL,
+  creado_en   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+);
+
 -- Una conversación por cliente de WhatsApp.
 CREATE TABLE IF NOT EXISTS conversaciones (
   id                INTEGER PRIMARY KEY,
