@@ -8,3 +8,6 @@ node_modules/
 
 # Base de datos local (puede contener mensajes de prueba)
 data/
+
+# Correo original del caso (trae nombres y correos internos)
+txt

@@ -1,6 +1,16 @@
 -- CU-BKN-01 · Esquema de la base de datos (SQLite)
 -- Se ejecuta al abrir la base; "IF NOT EXISTS" permite correrlo varias veces sin borrar datos.
 
+-- Personas del despacho que usan el panel (agentes y coordinadora).
+CREATE TABLE IF NOT EXISTS usuarios (
+  id              INTEGER PRIMARY KEY,
+  nombre          TEXT    NOT NULL,
+  correo          TEXT    NOT NULL UNIQUE COLLATE NOCASE,  -- con esto se inicia sesión
+  hash_contrasena TEXT    NOT NULL,                        -- scrypt con sal; nunca la contraseña en texto
+  rol             TEXT    NOT NULL CHECK (rol IN ('agente', 'coordinadora')),
+  creado_en       TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+);
+
 -- Una conversación por cliente de WhatsApp.
 CREATE TABLE IF NOT EXISTS conversaciones (
   id                INTEGER PRIMARY KEY,
