@@ -3,12 +3,15 @@ import express from 'express';
 import { verificarSuscripcion, firmaValida, extraerEventos } from './adaptadores/whatsapp-cloud.js';
 import { guardarMensajeEntrante, actualizarEstadoEnvio } from './nucleo/mensajes.js';
 import { rutasSesion } from './rutas/sesion.js';
+import { rutasBandeja } from './rutas/bandeja.js';
 
 export function crearApp({ db, appSecret, verifyToken, log = console.log }) {
   const app = express();
 
   // Login, logout y usuario actual del panel.
   app.use('/api', rutasSesion(db));
+  // Bandeja compartida (solo con sesión).
+  app.use('/api', rutasBandeja(db));
 
   // Verificación del webhook por Meta.
   app.get('/webhook', (req, res) => {
